@@ -4,18 +4,50 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <script src="Asset/data.js"></script>
     <title>Js-Practice/String</title>
   </head>
   <body>
     <div class="subject-header">
-      <a style="margin-left:10px;" href="" id="back-btn"><img src="Asset/arrow.png" class="back-img"/></a>
+      <a style="margin-left: 10px" href="" id="back-btn"
+        ><img src="Asset/arrow.png" class="back-img"
+      /></a>
       <h1>String</h1>
     </div>
 
+    <div class="section">
+      <button class="accordion">Section 1</button>
+      <div class="panel">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </p>
+      </div>
+      <hr/>
+    </div>
 
     <script>
-      const backAnchor = document.getElementById('back-btn');
-      backAnchor.href = window.location.origin+'/category.html';
+      
+      const backAnchor = document.getElementById("back-btn");
+      backAnchor.href = window.location.origin + "/category.html";
+
+      const dataList = document.getElementsByClassName("accordion");
+      
+      
+      for (let i = 0; i < dataList.length; i++) {
+        dataList[i].addEventListener("click", function (event) {
+          event.target.classList.toggle("active");
+          const panel = event.target.nextElementSibling;
+          if(panel.style.display === ""|| panel.style.display === "none"){
+            panel.style.display = "block"
+          }else{
+            panel.style.display = "none"
+          }
+        })
+      }
+      
     </script>
   </body>
 </html>
