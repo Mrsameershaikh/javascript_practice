@@ -8,6 +8,10 @@
     <title>JS-Practice/category</title>
   </head>
   <body>
+    <div class="subject-header">
+      <a style="margin-left:10px;" href="" id="back-btn"><img src="Asset/arrow.png" class="back-img"/></a>
+      <h1>Category</h1>
+    </div>
     <div class="grid-container" id="gridContainer">
       <!-- dynamic data injecting from script -->
     </div>
@@ -28,6 +32,9 @@
           gridContainer.appendChild(gridItem);
         });
       }
+
+      const backAnchor = document.getElementById('back-btn');
+      backAnchor.href = window.location.origin;
 
     </script>
   </body>
