@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="Asset/data.js"></script>
+    <title>JS-Practice/category</title>
+  </head>
+  <body>
+    <div class="grid-container" id="gridContainer">
+      <!-- dynamic data injecting from script -->
+    </div>
+
+    <script>
+      console.log(category);
+      const gridContainer = document.getElementById("gridContainer");
+
+      if (typeof category !== "undefined") {
+        category.forEach(function (item) {
+          const gridItem = document.createElement("div");
+          gridItem.className = "grid-item";
+          const gridAnchor = document.createElement("a");
+          gridAnchor.className = "grid-anchor";
+          gridItem.appendChild(gridAnchor);
+          gridAnchor.textContent = item;
+          gridAnchor.href=window.location.origin+'/'+item.toLowerCase()+'.html';
+          gridContainer.appendChild(gridItem);
+        });
+      }
+
+    </script>
+  </body>
+</html>

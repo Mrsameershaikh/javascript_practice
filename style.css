@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: aliceblue;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  margin-left: 40%;
+  font-weight: lighter;
+  letter-spacing: 2px;
+  animation-name: moveLeft;
+  animation-duration: 2s;
+}
+
+
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+
+.btn {
+  width: fit-content;
+  margin-top: 20px;
+  font-size: medium;
+  padding: 5px;
+  font-weight: bold;
+  background-color: aliceblue;
+  color: black;
+  transform: translateZ(0);
+  animation-name: moveUp;
+  animation-duration: 1s;
+  cursor: pointer;
+}
+
+.btn:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: darkgray;
+  transform: scaleX(0);
+  transition: 300ms ease-out;
+}
+
+.btn:hover:before {
+  transform: scaleX(1);
+}
+@keyframes moveUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+/* Category page grid css */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  margin: 5px;
+  font-size: 20px;
+  text-align: center;
+  animation-name: moveLeft;
+  animation-duration: 1s;
+}
+
+
+.grid-anchor{
+  text-decoration: none;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Category pages global CSS */
+.subject-header{
+  width: 100vw;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  position: relative;
+  animation-name: moveDown;
+  animation-duration: 1s;
+}
+
+@keyframes moveDown {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.subject-header h1{
+  position: absolute;
+  left: 45%;
+  margin-top: -35px;
+  background-color: black;
+}
+
+.back-img{
+ width: 30px;
+ height: 30px;
+ padding: 5px;
+}
+
+
