@@ -20,41 +20,36 @@
     </div>
 
     <script>
-      
       const backAnchor = document.getElementById("back-btn");
       backAnchor.href = window.location.origin + "/category.html";
 
-      
-      const section = document.getElementById('section');
+      const section = document.getElementById("section");
 
-      const dataList = arrayData.map((item)=>{
-        const accordion = document.createElement('div');
-        accordion.className="accordion";
+      const dataList = stringData.map((item) => {
+        const accordion = document.createElement("div");
+        accordion.className = "accordion";
         accordion.textContent = item.Q;
-        const hrTag = document.createElement('hr');
+        const hrTag = document.createElement("hr");
         accordion.appendChild(hrTag);
         section.appendChild(accordion);
-        const panel = document.createElement('div');
-        panel.className="panel";
+        const panel = document.createElement("div");
+        panel.className = "panel";
         panel.textContent = item.Ans;
         section.appendChild(panel);
         return accordion;
-      })
+      });
 
-     
-      
       for (let i = 0; i < dataList.length; i++) {
         dataList[i].addEventListener("click", function (event) {
           event.target.classList.toggle("active");
           const panel = event.target.nextElementSibling;
-          if(panel.style.display === "" || panel.style.display === "none"){
-            panel.style.display = "block"
-          }else{
-            panel.style.display = "none"
+          if (panel.style.display === "" || panel.style.display === "none") {
+            panel.style.display = "block";
+          } else {
+            panel.style.display = "none";
           }
-        })
+        });
       }
-      
     </script>
   </body>
 </html>
