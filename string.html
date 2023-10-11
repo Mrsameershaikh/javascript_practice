@@ -15,17 +15,8 @@
       <h1>String</h1>
     </div>
 
-    <div class="section">
-      <button class="accordion">Section 1</button>
-      <div class="panel">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </p>
-      </div>
-      <hr/>
+    <div id="section">
+      <!-- complete html data will be injected from script -->
     </div>
 
     <script>
@@ -33,14 +24,30 @@
       const backAnchor = document.getElementById("back-btn");
       backAnchor.href = window.location.origin + "/category.html";
 
-      const dataList = document.getElementsByClassName("accordion");
       
+      const section = document.getElementById('section');
+
+      const dataList = arrayData.map((item)=>{
+        const accordion = document.createElement('div');
+        accordion.className="accordion";
+        accordion.textContent = item.Q;
+        const hrTag = document.createElement('hr');
+        accordion.appendChild(hrTag);
+        section.appendChild(accordion);
+        const panel = document.createElement('div');
+        panel.className="panel";
+        panel.textContent = item.Ans;
+        section.appendChild(panel);
+        return accordion;
+      })
+
+     
       
       for (let i = 0; i < dataList.length; i++) {
         dataList[i].addEventListener("click", function (event) {
           event.target.classList.toggle("active");
           const panel = event.target.nextElementSibling;
-          if(panel.style.display === ""|| panel.style.display === "none"){
+          if(panel.style.display === "" || panel.style.display === "none"){
             panel.style.display = "block"
           }else{
             panel.style.display = "none"
